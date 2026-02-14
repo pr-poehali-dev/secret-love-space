@@ -56,9 +56,11 @@ const Index = () => {
           <div className="bg-white/40 backdrop-blur-sm rounded-2xl p-5 hover:bg-white/55 transition-all duration-500 group">
             <p className="text-xs text-muted-foreground/60 mb-3">22.02.25</p>
 
-            <p className="font-handwriting text-3xl text-foreground/70 mb-4 italic">
-              начало
-            </p>
+            <img
+              src="https://cdn.poehali.dev/projects/595b77c4-5630-46d0-808f-2f7643646c70/bucket/e7e1de5a-ec4f-4c72-a8b3-7d75a81213d0.jpg"
+              alt="Начало"
+              className="w-full rounded-xl mb-4"
+            />
 
             <div className="mb-4">
               <AudioPlayer title="Всё было не случай..." duration="3:14" />
@@ -86,9 +88,11 @@ const Index = () => {
           <div className="bg-white/40 backdrop-blur-sm rounded-2xl p-5 hover:bg-white/55 transition-all duration-500 group">
             <p className="text-xs text-muted-foreground/60 mb-3">22.02.26</p>
 
-            <h2 className="font-handwriting text-4xl text-foreground/85 mb-4 tracking-wide">
-              НАВСЕГДА
-            </h2>
+            <img
+              src="https://cdn.poehali.dev/projects/595b77c4-5630-46d0-808f-2f7643646c70/bucket/d66fb80a-4396-4507-a315-9c34a07ae651.jpg"
+              alt="Навсегда"
+              className="w-full rounded-xl mb-4"
+            />
 
             <div className="mb-4">
               <AudioPlayer title="Навсегда" duration="3:22" />
