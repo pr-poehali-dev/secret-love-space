@@ -44,7 +44,7 @@ const Index = () => {
               нужно согреться — я всегда здесь жду тебя 😊
             </p>
 
-            <p className="text-xs text-muted-foreground/60 mt-3">22.02.25</p>
+            <p className="text-xs text-muted-foreground/60 mt-3"></p>
           </div>
         </div>
 
