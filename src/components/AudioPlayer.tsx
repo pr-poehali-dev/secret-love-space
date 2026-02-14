@@ -1,38 +1,73 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
 interface AudioPlayerProps {
   title: string;
   duration: string;
+  src?: string;
 }
 
-const AudioPlayer = ({ title, duration }: AudioPlayerProps) => {
+const formatTime = (sec: number) => {
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return `${m}:${s.toString().padStart(2, "0")}`;
+};
+
+const AudioPlayer = ({ title, duration, src }: AudioPlayerProps) => {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [totalDuration, setTotalDuration] = useState(0);
+
+  useEffect(() => {
+    if (!src) return;
+    const audio = new Audio(src);
+    audioRef.current = audio;
+
+    audio.addEventListener("loadedmetadata", () => {
+      setTotalDuration(audio.duration);
+    });
+
+    audio.addEventListener("timeupdate", () => {
+      if (audio.duration) {
+        setProgress((audio.currentTime / audio.duration) * 100);
+        setCurrentTime(audio.currentTime);
+      }
+    });
+
+    audio.addEventListener("ended", () => {
+      setIsPlaying(false);
+      setProgress(0);
+      setCurrentTime(0);
+    });
+
+    return () => {
+      audio.pause();
+      audio.src = "";
+    };
+  }, [src]);
 
   const handleToggle = () => {
-    setIsPlaying(!isPlaying);
-    if (!isPlaying) {
-      let current = progress;
-      const interval = setInterval(() => {
-        current += 0.5;
-        if (current >= 100) {
-          clearInterval(interval);
-          setIsPlaying(false);
-          setProgress(0);
-          return;
-        }
-        setProgress(current);
-      }, 300);
+    if (!audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
     }
+    setIsPlaying(!isPlaying);
   };
 
   const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!audioRef.current || !audioRef.current.duration) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
-    const percent = (x / rect.width) * 100;
-    setProgress(Math.max(0, Math.min(100, percent)));
+    const percent = x / rect.width;
+    audioRef.current.currentTime = percent * audioRef.current.duration;
   };
+
+  const displayDuration = totalDuration > 0 ? formatTime(totalDuration) : duration;
+  const displayCurrent = currentTime > 0 ? formatTime(currentTime) : "0:00";
 
   return (
     <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-[var(--love-pink)]/30 hover:shadow-md transition-all duration-300">
@@ -54,7 +89,7 @@ const AudioPlayer = ({ title, duration }: AudioPlayerProps) => {
               {title}
             </span>
             <span className="text-xs text-muted-foreground flex-shrink-0">
-              {duration}
+              {displayCurrent} / {displayDuration}
             </span>
           </div>
 
