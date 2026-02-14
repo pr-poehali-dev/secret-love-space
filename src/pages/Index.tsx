@@ -44,7 +44,7 @@ const Index = () => {
               нужно согреться — я всегда здесь жду тебя 😊
             </p>
 
-            <p className="text-xs text-muted-foreground/60 mt-3">23 января</p>
+            <p className="text-xs text-muted-foreground/60 mt-3">22.02.25</p>
           </div>
         </div>
 
@@ -54,7 +54,7 @@ const Index = () => {
           style={{ animationDelay: "0.3s" }}
         >
           <div className="bg-white/40 backdrop-blur-sm rounded-2xl p-5 hover:bg-white/55 transition-all duration-500 group">
-            <p className="text-xs text-muted-foreground/60 mb-3">24 января</p>
+            <p className="text-xs text-muted-foreground/60 mb-3">22.02.26</p>
 
             <p className="font-handwriting text-3xl text-foreground/70 mb-4 italic">
               начало
