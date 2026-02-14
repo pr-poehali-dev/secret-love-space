@@ -17,7 +17,7 @@ const Index = () => {
           <h1 className="font-handwriting text-5xl md:text-6xl text-foreground/90 mb-2">
             Для любви
           </h1>
-          <p className="text-sm text-muted-foreground">1 подписчик</p>
+          <p className="text-sm text-muted-foreground">2 подписчика</p>
         </header>
 
         {/* Pinned Post */}
