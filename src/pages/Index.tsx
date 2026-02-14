@@ -63,7 +63,7 @@ const Index = () => {
             />
 
             <div className="mb-4">
-              <AudioPlayer title="Всё было не случай..." duration="3:14" src="https://files.catbox.moe/g1nhsv.mp3" />
+              <AudioPlayer title="Всё было не случай..." duration="3:14" src="https://cdn.poehali.dev/projects/595b77c4-5630-46d0-808f-2f7643646c70/bucket/audio/nachalo.mp3" />
             </div>
 
             <div className="text-foreground/75 leading-relaxed text-[15px] space-y-2">
@@ -95,7 +95,7 @@ const Index = () => {
             />
 
             <div className="mb-4">
-              <AudioPlayer title="Навсегда" duration="3:22" src="https://files.catbox.moe/ucr5fh.mp3" />
+              <AudioPlayer title="Навсегда" duration="3:22" src="https://cdn.poehali.dev/projects/595b77c4-5630-46d0-808f-2f7643646c70/bucket/audio/navsegda.mp3" />
             </div>
 
             <div className="text-foreground/75 leading-relaxed text-[15px] space-y-2">

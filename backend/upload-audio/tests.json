@@ -1,0 +1,1 @@
+{"tests": [{"name": "Upload audio", "method": "POST", "path": "/", "body": {"url": "https://files.catbox.moe/g1nhsv.mp3", "filename": "nachalo.mp3"}, "expectedStatus": 200, "expectedBody": {"url": "string"}, "bodyMatcher": "partial"}]}
